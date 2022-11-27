@@ -73,6 +73,12 @@ def customer_can_afford_pet(customer, new_pet):
         return False
 
 
-
+def sell_pet_to_customer(pet_shop, pet_name, customer):
+    pet = find_pet_by_name(pet_shop, pet_name)
+    if customer_can_afford_pet(customer, pet_name) == True:
+        add_pet_to_customer(customer, pet_name)
+        remove_pet_by_name(pet_shop, pet_name)
+        remove_customer_cash(customer, cash_removed)
+        add_or_remove_cash(pet_shop, cash_in_or_out)
 
 
